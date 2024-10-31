@@ -5,7 +5,7 @@ clear
 s = tf('s');
 
 GH = 8/(s*(1+0.5*s));
-C = (s+2)/(s+4);
+C = (s+2.92)/(s+5.46);
 
 rlocus(GH*C);
 
@@ -15,9 +15,22 @@ clear
 s = tf('s');
 
 GH = 2/((1+0.1*s)*(6+2*s));
-C = ((s+5.5))/(s);
+C = ((s+5.53))/(s);
 
 rlocus(GH*C);
+
+%% Ejercicio 3
+
+clc
+clear
+s = tf('s');
+
+GH = (s-50)/((s)*(s+10));
+
+C0 = -1;
+C1 = (1+s/2.85)/(s+1);
+C2 = (S+0.01)/(S+0.001);
+rlocus(GH*C0*C1*C2);
 
 %% Ejercicio 5
 clc
@@ -27,7 +40,9 @@ s = tf('s');
 GH = 4/((s)*(s+0.5));
 C = ((s+0.5)*(s+0.016))/((s+5)*(s+0.001));
 
-rlocus(GH*C);
+Cgabi = ((s+0.0001)*(1+s/2.5))/((s+0.008)*(1+ s/8.7));
+
+rlocus(GH*Cgabi);
 
 %% Ejercicio 6
 clc
@@ -38,7 +53,8 @@ GH = 16/(s*(s+2));
 C1a = (s+3.75)/(s+14);
 C1b = (s+2.16)/(s+6.4951);
 C1c = (0.2719)/(1);
-bode(GH*C1c)
+
+bode(GH)
 
 %% Ejercicio 7
 clc;

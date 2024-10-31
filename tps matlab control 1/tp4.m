@@ -74,7 +74,7 @@ s = tf('s');
 
 % Definir la función de transferencia
 GH_a = 10 / (s * (1 + 0.25 * s) * (1 + 0.006 * s));
-GH_b =  (5 / (s * (1 + 100 * s) * (s+1))) * (10*s + 1)/(0.5*s + 1);
+GH_b =  (5 / (s * (1 + 100 * s) * (s+1))) * ((10*s + 1)/(0.5*s + 1))
 GH_c =  1 / (0.1*s*s + 0.7*s + 1);
 GH_d =  (0.1*s*s + 10*s + 1) / (s * (100 + s) * (s + 200)) ;
 GH_e =  (5 / (s * (1 + 100 * s) * (s+1))) * (10*s + 1)/(0.5*s + 1);
@@ -82,7 +82,7 @@ GH_f =  (s - 2) / (s + 2);
 
 %Definir aca la GH que se quiere ver:
 
-GH = GH_f;
+GH = GH_c;
 
 % grafico
 figure;
@@ -96,7 +96,7 @@ title('Diagrama de Nyquist');
 subplot(3,1,2);
 bode(GH);
 title('Diagrama de Bode');
-grid on;x
+grid on;
 
 subplot(3,1,3);
 [y,t] = step(GH/(1+GH));
