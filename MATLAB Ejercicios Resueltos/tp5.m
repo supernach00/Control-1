@@ -29,7 +29,7 @@ GH = (s-50)/((s)*(s+10));
 
 C0 = -1;
 C1 = (1+s/2.85)/(s+1);
-C2 = (S+0.01)/(S+0.001);
+C2 = (s+0.01)/(s+0.001);
 rlocus(GH*C0*C1*C2);
 
 %% Ejercicio 5
@@ -40,7 +40,9 @@ s = tf('s');
 GH = 4/((s)*(s+0.5));
 C = ((s+0.5)*(s+0.016))/((s+5)*(s+0.001));
 
-rlocus(GH*C);
+Cgabi = ((s+0.0001)*(1+s/2.5))/((s+0.008)*(1+ s/8.7));
+
+rlocus(GH*Cgabi);
 
 %% Ejercicio 6
 clc
@@ -52,9 +54,7 @@ C1a = (s+3.75)/(s+14);
 C1b = (s+2.16)/(s+6.4951);
 C1c = (0.2719)/(1);
 
-Cgabi = ()
-
-bode(GH*C1c)
+bode(GH)
 
 %% Ejercicio 7
 clc;
@@ -93,7 +93,7 @@ GH = (8000*(s+1))/((s+10)*(s+200));
 C1 = 1/s;
 C2 = 31.622;
 C3 = (1866/500)*(s+500)/(s+1866);
-CA = C1*C2*C3
+CA = C1*C2*C2
 
 %opcion 2
 C1 = 1/s;
@@ -101,8 +101,8 @@ C2 = (s/0.022+1);
 C3 = (s/0.0201+1);
 CB = C1*C2
 
-rlocus(GH*C1*C3);
-% bode(GH*C3*C1);v
+% rlocus(GH*C1*C3);
+bode(GH*C3*C1);v
 
 %% Ejercicio 9
 clc
@@ -119,7 +119,7 @@ C4 = (1+s/787)/(1+s/8995.45);% agrego 50 de fase a 724rad/s
 CA = C1*C2*C3*C4;
 
 rlocus(GH*CA);
-bode(GH*CA);
+bode(GH*C1*C3*C2);
 
 %% Ejercicio 11
 
